@@ -140,7 +140,7 @@ Fi
  - #/usr/local/tomcat/bin/startup.sh
  - #/usr/local/tomcat/brin/version.sh
  - #/usr/local/tomcat/logs/catalina.sh
-## Q can you please give regulary used command in linux 
+## 29 can you please give regulary used command in linux 
 	1) ls
     2) rm
     3) df -h
@@ -153,23 +153,23 @@ Fi
     10) grep 
     11) systemctl start/stop servicename
 
-## Q how to generate public and private keys
+## 30 how to generate public and private keys
  ans) ssh-key gen -t -b 2048
      - id_ras 
      - id_rsa.pub
-## Q how to do permaent mount
+## 40 how to do permaent mount
   #Vim /etc/fstab
   ```
    /dev/xvda  /opt       ext4   ext4   defaults  0 0
   ```
   -  Mount –a
-## Q Log paths in httpd web servers
+## 41 Log paths in httpd web servers
   - /var/log/messges --> message logs available
   - /var/log/errorlogs  --> error logs available
   - /var/log/accesslogs --> Access logs available
   - /var/log/securelog  --> security logs available
 
-## Q If some web servers are working on http port how can u change that is into https
+## 42 If some web servers are working on http port how can u change that is into https
   ans)add these lines in /etc/httpd/conf/httpd.conf to redirect http to https:
   ```
       RewriteEngine On
