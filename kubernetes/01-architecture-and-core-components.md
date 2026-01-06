@@ -3,13 +3,6 @@
 ### Answer  
 A Kubernetes cluster consists of a **Control Plane** (API Server, Scheduler, Controller Manager, etcd) and multiple **Worker Nodes** (Kubelet, Kube Proxy, Container Runtime). The control plane manages the cluster state, while the worker nodes run the actual workloads (pods).
 
----
-
-### Detailed explanation of the answer for readers’ understanding
-
-A Kubernetes cluster is made up of:
-
----
 
 ## 🧠 1. **Control Plane** — The Brain of the Cluster
 
@@ -23,8 +16,6 @@ The control plane manages and maintains the desired state of the cluster (e.g., 
 | **etcd**           | Distributed key-value store for storing all cluster data (configuration, state, secrets, etc.). |
 | **kube-scheduler** | Assigns pods to nodes based on resource availability, taints/tolerations, affinities. |
 | **controller-manager** | Runs various controllers (e.g., Node, ReplicaSet, Job) to monitor and maintain the desired state. |
-
----
 
 ## ⚙️ 2. **Worker Nodes** — Where Your Apps Run
 
@@ -43,7 +34,6 @@ Worker nodes are where actual application workloads (pods) are deployed.
 What happens behind the scenes when you run `kubectl apply -f pod.yaml` to deploy a pod in Kubernetes?
 
 ### Answer
----
 
 ### 🔗 Communication Flow (Simplified)
 
