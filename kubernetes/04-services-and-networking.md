@@ -4,6 +4,7 @@ What is a Service in Kubernetes? (Interview intro)
 ### Answer
 In Kubernetes, a Service provides a stable network endpoint to access a set of Pods because Pod IPs are dynamic and keep changing.
 
+---
 ### Question 2
  what are the type services in kubernetes and explain those
 
@@ -29,3 +30,5 @@ Port range:
 - Headless Service
    - A Headless Service does not provide load balancing and returns individual Pod IPs directly
    - Headless services are used with StatefulSets like MySQL, MongoDB, or Kafka where each Pod needs a unique identity.
+
+---
