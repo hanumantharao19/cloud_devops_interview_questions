@@ -39,17 +39,6 @@ Worker nodes are where actual application workloads (pods) are deployed.
 | **Container Runtime** | Responsible for running the containers (e.g., containerd, Docker, CRI-O). |
 
 ---
-### 🔗 Communication Flow (Simplified)
-
-1. You run `kubectl apply -f deployment.yaml`
-2. `kubectl` talks to the `kube-apiserver`
-3. The API server stores config/state in `etcd`
-4. The `scheduler` finds the best node to place the pod
-5. The `kubelet` on that node pulls the image and starts the container
-6. `kube-proxy` and `service` route traffic to the pod
-
----
-
 ### Question 2 
 What happens behind the scenes when you run `kubectl apply -f pod.yaml` to deploy a pod in Kubernetes?
 
@@ -66,4 +55,5 @@ What happens behind the scenes when you run `kubectl apply -f pod.yaml` to deplo
 6. `kube-proxy` and `service` route traffic to the pod
 
 ---
+
 
