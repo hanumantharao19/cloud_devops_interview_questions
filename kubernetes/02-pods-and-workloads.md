@@ -61,8 +61,6 @@ strategy:
 For services that are **business-critical or prone to regression**, we use **Canary deployments** via tools like:
 
 - [Argo Rollouts](https://argo-rollouts.readthedocs.io/)
-- [Flagger](https://flagger.app/)
-- Istio/Linkerd (in some setups)
 
 Canary strategy slowly shifts traffic like:
 
@@ -72,10 +70,9 @@ Canary strategy slowly shifts traffic like:
 #### Benefits:
 - We catch issues early with real traffic.
 - Automated rollback if metrics or logs indicate failure.
-- Controlled and observable releases.
 
 ### 🚦 3. Blue-Green Deployment (used less frequently)
-
+- follow below steps to implement the blue-green stratagy
 1) Blue environment
 
  - Current production version
