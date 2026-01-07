@@ -70,3 +70,7 @@ spec:
       port: 5432
 ```
 ---
+
+## what are kubernet Networking plugins ?
+- CNI plugins such as Calico / Weavenet, flannel
+---
