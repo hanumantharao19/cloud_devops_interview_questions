@@ -32,3 +32,41 @@ Port range:
    - Headless services are used with StatefulSets like MySQL, MongoDB, or Kafka where each Pod needs a unique identity.
 
 ---
+
+
+### Question  
+Explain how you would restrict traffic so that only a specific application (pod) can connect to a database pod within the same namespace.
+
+### Answer
+Use a NetworkPolicy to allow database access only from a specific application pod based on labels. Once the policy is applied, all other pods in the same namespace are blocked by default.
+
+Key Points
+
+- By default, all pods can talk to each other
+
+- NetworkPolicy is used to restrict pod-to-pod communication
+
+- Traffic is controlled using labels
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-app-to-db
+  namespace: my-namespace
+spec:
+  podSelector:
+    matchLabels:
+      role: db
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          role: api
+    ports:
+    - protocol: TCP
+      port: 5432
+```
+---
