@@ -24,4 +24,50 @@ selector:
   app: frontend
 ```
 ---
+## Question
+How Node Affinity Works in Kubernetes and When to Use It
+### Answer  
+- Node Affinity allows a pod to be scheduled only on specific nodes based on node labels.
+- It is used when a workload must run on particular nodes, such as GPU nodes, SSD nodes, or nodes in a specific zone.
+
+
+### 🎯 What Is Node Affinity?
+
+Kubernetes nodes can have labels like:
+
+```bash
+key = disktype
+value = ssd
+```
+
+Node affinity lets you **require or prefer** that pods run only on nodes with specific labels.
+
+---
+
+### 🔧 Types of Node Affinity
+
+1. **requiredDuringSchedulingIgnoredDuringExecution**
+   - Hard rule: Pod **won’t schedule** unless the rule is met.
+   - Example: Only run on GPU nodes.
+
+2. **preferredDuringSchedulingIgnoredDuringExecution**
+   - Soft rule: Pod **prefers** to run on a node but can fall back to others.
+   - Example: Prefer zone `us-east-1a`, but any zone is okay.
+
+---
+
+### 📦 Example YAML (Required Affinity)
+
+```yaml
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: disktype
+              operator: In
+              values:
+                - ssd
+```
+
 
