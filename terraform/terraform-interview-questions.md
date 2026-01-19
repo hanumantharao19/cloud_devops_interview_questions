@@ -19,63 +19,65 @@ It follows a declarative approach, meaning we define what we want, and Terraform
 ## 2. What are the main components of Terraform?
 Terraform has the following main components:
 
-Providers – Connect Terraform to cloud platforms (AWS, Azure, GCP, etc.)
+- Providers – Connect Terraform to cloud platforms (AWS, Azure, GCP, etc.)
 
-Resources – Actual infrastructure like EC2, VPC, S3, VM, etc.
+- Resources – Actual infrastructure like EC2, VPC, S3, VM, etc.
 
-Modules – Reusable blocks of Terraform code
+- Modules – Reusable blocks of Terraform code
 
-State – Keeps track of created resources
+- State – Keeps track of created resources
 
-Configuration Files – Written in HCL (HashiCorp Configuration Language)
+- Configuration Files – Written in HCL (HashiCorp Configuration Language)
 
-Backend – Stores the Terraform state (local, S3, Terraform Cloud, etc.)
+- Backend – Stores the Terraform state (local, S3, Terraform Cloud, etc.)
 ## 3. What is the difference between Terraform and other IaC tools like Ansible?
 ## Terraform	
-Used for infrastructure provisioning
-Declarative approach
-Maintains a state file
-Best for creating cloud resources
-Cloud-agnostic
+- Used for infrastructure provisioning
+- Declarative approach
+- Maintains a state file
+- Best for creating cloud resources
+- Cloud-agnostic
 
 ## Ansible
-Used for configuration management
-Imperative approach
-No state file
-Best for configuring servers
-Mostly used after servers are created
+- Used for configuration management
+- Imperative approach
+- No state file
+- Best for configuring servers
+- Mostly used after servers are created
 ## 4. What is Terraform State? Why is it important?
 Terraform State is a file that stores information about infrastructure created by Terraform.
 
-Why it is important:
+### Why it is important:
 
-Tracks existing resources
+- Tracks existing resources
 
-Helps Terraform know what to create, update, or delete
+- Helps Terraform know what to create, update, or delete
 
-Manages dependencies between resources
+- Manages dependencies between resources
 
-Enables team collaboration using remote backends like S3
+- Enables team collaboration using remote backends like S3
 
-Prevents duplicate or conflicting resources
+- Prevents duplicate or conflicting resources
 ## 5. What are the different types of variables in Terraform?
 Terraform supports three main types of variables:
 
 ## Input Variables
-Used to pass values into Terraform configurations.
-They make the code dynamic and reusable.
+- Used to pass values into Terraform configurations.
+- They make the code dynamic and reusable.
 
 ## Environment Variables
-Set at the OS or system level.
-Commonly used to pass credentials or global values to Terraform.
+- Set at the OS or system level.
+- Commonly used to pass credentials or global values to Terraform.
 
 ## Output Variables
-Used to display values after Terraform execution,
-such as resource IDs, IP addresses, or URLs.
+- Used to display values after Terraform execution,
+- such as resource IDs, IP addresses, or URLs.
 
 ## 6. How do you initialize a Terraform project and what is the purpose of terraform init?
 ## Answer:
+```
 terraform init
+```
 ## Explanation:
 
 - Initializes the Terraform working directory
@@ -87,8 +89,9 @@ terraform init
 ## 7. How do you create a plan for infrastructure changes and what is the purpose of terraform plan?
 
 ## Answer:
+```
 terraform plan
-
+```
 ## Explanation:
 
 - Previews changes Terraform will make
@@ -98,19 +101,21 @@ terraform plan
 - Does not make any real changes
 
 - Helps review and avoid mistakes before applying
-8. How do you apply changes to infrastructure?
+## 8. How do you apply changes to infrastructure?
 
-Answer:
+## Answer:
+```
 terraform apply
-
-Explanation:
-This command creates or updates infrastructure based on the configuration file
+```
+## Explanation:
+- This command creates or updates infrastructure based on the configuration file
 
 ## 9. How do you delete all resources managed by Terraform and what is the purpose of terraform destroy?
 
 ## Answer:
+```
 terraform destroy
-
+```
 ## Explanation:
 
 - Deletes all infrastructure resources created by Terraform
@@ -124,8 +129,9 @@ terraform destroy
 ## 10. How do you format Terraform configuration files and what is the purpose of terraform fmt?
 
 ## Answer:
+```
 terraform fmt
-
+```
 ## Explanation:
 
 - Formats Terraform .tf files automatically
@@ -135,26 +141,26 @@ terraform fmt
 - Improves code readability and consistency
 
 - Useful when multiple people work on the same code
-11. What is a Terraform Provider?
+## 11. What is a Terraform Provider?
 
-Answer:
-A Terraform Provider is a plugin that allows Terraform to interact with a specific
+## Answer:
+- A Terraform Provider is a plugin that allows Terraform to interact with a specific
 platform like AWS, Azure, GCP, or Kubernetes.
 
-Key points:
+## Key points:
 
-Acts as a bridge between Terraform and cloud APIs
+- Acts as a bridge between Terraform and cloud APIs
 
-Manages resource creation, updates, and deletion
+- Manages resource creation, updates, and deletion
 
-Requires configuration like region and credentials
+- Requires configuration like region and credentials
 
-Without a provider, Terraform cannot manage infrastructure
+- Without a provider, Terraform cannot manage infrastructure
 
 ## 12. How does Terraform ensure idempotency?
 
 ## Answer:
-Terraform ensures idempotency by using its state file.
+- Terraform ensures idempotency by using its state file.
 
 ## Explanation:
 
@@ -166,7 +172,7 @@ Terraform ensures idempotency by using its state file.
 
 - This ensures safe, predictable, and consistent deployments
 
-## 14. How do you manage multiple environments in Terraform?
+## 13. How do you manage multiple environments in Terraform?
 ##  Answer:
 - Terraform supports multiple environments using:
 
@@ -176,7 +182,7 @@ Terraform ensures idempotency by using its state file.
 
 
 ## Explanation:
-Option 1: Separate folders with separate state files (BEST PRACTICE) ✅
+- Option 1: Separate folders with separate state files (BEST PRACTICE) ✅
 How it works:
 
 - Each environment has its own folder
@@ -233,7 +239,7 @@ terraform workspace select dev
 - Not preferred for large setups
 ---
 
-## 15. What is a Terraform Backend?
+## 14. What is a Terraform Backend?
 
 ## Answer (Simple):
 - A Terraform backend is where Terraform stores its state file.
@@ -269,22 +275,27 @@ terraform {
 }
 ```
 ---
-## 16. How do you validate Terraform configuration files?
+## 15. How do you validate Terraform configuration files?
+```
 terraform validate
-
-## 17. How do you check the version of Terraform installed?
+```
+## 16. How do you check the version of Terraform installed?
+```
 terraform version
-
-## 18. How do you list all Terraform workspaces?
+```
+## 17. How do you list all Terraform workspaces?
+```
 terraform workspace list
-
-## 19. How do you create a new Terraform workspace?
+```
+## 18. How do you create a new Terraform workspace?
+```
 terraform workspace new <workspace_name>
-
-## 20. How do you switch between Terraform workspaces?
+```
+## 19. How do you switch between Terraform workspaces?
+```
 terraform workspace select <workspace_name>
-
-## 22. What is the Terraform Registry?
+```
+## 20. What is the Terraform Registry?
 
 ## Answer:
 - The Terraform Registry is an online platform with pre-built modules and providers for Terraform.
@@ -302,7 +313,7 @@ terraform workspace select <workspace_name>
 ## One-line answer:
 - The Terraform Registry provides reusable Terraform modules and providers to simplify infrastructure setup.
 ---
-## 23. What are Terraform Modules?
+## 21. What are Terraform Modules?
 
 ## Answer:
 - Modules are reusable blocks of Terraform code that group multiple resources together.
@@ -320,7 +331,7 @@ terraform workspace select <workspace_name>
 ## One-line answer:
 - Modules are reusable Terraform configurations that make code organized and easy to maintain.
 ---
-## 24. How do you handle sensitive data like credentials in Terraform?
+## 22. How do you handle sensitive data like credentials in Terraform?
 
 ## Answer:
 - Sensitive data should be managed securely and never hardcoded in .tf files.
@@ -339,30 +350,30 @@ terraform workspace select <workspace_name>
 
 ## One-line answer:
 - Handle sensitive data with environment variables, sensitive Terraform variables, and secret management tools, and avoid hardcoding.
-
-## 25. How do you remove a Terraform resource without deleting it from the infrastructure?
+---
+## 23. How do you remove a Terraform resource without deleting it from the infrastructure?
 ```
 terraform state rm <resource_name>
 ```
 
-## 26. How do you taint a resource in Terraform?
+## 24. How do you taint a resource in Terraform?
 ```
 terraform taint <resource_name>
 ```
 
-## 27. How do you untaint a resource in Terraform?
+## 25. How do you untaint a resource in Terraform?
 ```
 terraform untaint <resource_name>
 ```
 
-## 28. How do you output values from Terraform configurations?
+## 26. How do you output values from Terraform configurations?
 ```
 terraform output
 ```
-## 29. How do you lock the Terraform state file?
+## 27. How do you lock the Terraform state file?
 
 ## Answer:
-Terraform state locking is handled automatically when using remote backends.
+- Terraform state locking is handled automatically when using remote backends.
 
 ## Key points:
 
@@ -375,7 +386,7 @@ Terraform state locking is handled automatically when using remote backends.
 ## One-line answer:
 - Terraform locks the state file automatically using remote backends like S3 with DynamoDB.
 
-30. What are the benefits of using Terraform Cloud?
+## 28. What are the benefits of using Terraform Cloud?
 
 ## Answer:
 - Terraform Cloud is a managed service that helps teams run Terraform safely and efficiently.
@@ -397,7 +408,7 @@ Terraform state locking is handled automatically when using remote backends.
 ## One-line answer:
 - Terraform Cloud simplifies Terraform usage by providing remote state, collaboration, and governance features.
 
-## 31. What is the depends_on argument?
+## 29. What is the depends_on argument?
 
 ## Answer:
 - depends_on is used to explicitly define resource dependencies.
@@ -415,7 +426,7 @@ Terraform state locking is handled automatically when using remote backends.
 ## One-line answer:
 -- depends_on forces Terraform to create resources in a specific order.
 
-32. What are the common Terraform file extensions?
+## 30. What are the common Terraform file extensions?
 
 ## Answer:
 
@@ -438,7 +449,7 @@ outputs.tf
 ## One-line answer:
 - Terraform uses .tf for code, .tfvars for variables, and .tfstate for state.
 ---
-## 40. What is a Terraform State Lock?
+## 31. What is a Terraform State Lock?
 
 ## Answer:
 - A Terraform state lock prevents multiple users or processes from modifying the state file at the same time.
@@ -456,7 +467,7 @@ outputs.tf
 ## One-line answer:
 - A state lock ensures only one Terraform operation can update the state at a time.
 ---
-## 34. How do you handle Terraform state file conflicts?
+## 32. How do you handle Terraform state file conflicts?
 
 ## Answer:
 - Terraform normally prevents conflicts using state locking.
@@ -474,19 +485,23 @@ outputs.tf
 ## One-line answer:
 - State conflicts are handled by backend locking and resolved using terraform force-unlock or state recovery.
 ---
-## 35. How do you import existing infrastructure into Terraform?
+## 33. How do you import existing infrastructure into Terraform?
+```
 terraform import <resource_name> <resource_id>
-
-## 36. How do you view the current Terraform state?
+```
+## 34. How do you view the current Terraform state?
+```
 terraform show
-
-## 37. How do you generate a human-readable execution plan?
+```
+## 35. How do you generate a human-readable execution plan?
+```
 terraform plan -out=<filename>
-
-## 38. How do you upgrade provider plugins in Terraform?
+```
+## 36. How do you upgrade provider plugins in Terraform?
+```
 terraform init -upgrade
-
-## 41. What is the purpose of the .terraform.lock.hcl file?
+```
+## 37. What is the purpose of the .terraform.lock.hcl file?
 
 ## Answer:
 - The .terraform.lock.hcl file is used to lock provider versions in Terraform.
@@ -506,45 +521,42 @@ terraform init -upgrade
 ## One-line answer:
 - The .terraform.lock.hcl file locks provider versions to ensure consistent Terraform runs.
 
-## 42. What are dynamic blocks in Terraform?
+## 38. What are dynamic blocks in Terraform?
 
 ## Answer:
 - Dynamic blocks allow you to create repeated nested blocks automatically using variables or conditions.
 
 ## Key points:
 
-Used when a resource needs multiple similar blocks
+- Used when a resource needs multiple similar blocks
 
-Helps avoid writing duplicate code
+- Helps avoid writing duplicate code
 
-Makes Terraform code cleaner and easier to manage
+- Makes Terraform code cleaner and easier to manage
 
-Uses the dynamic keyword with a content block
+- Uses the dynamic keyword with a content block
 
 ## One-line answer:
-Dynamic blocks are used to generate repeated configuration blocks dynamically in Terraform.
+- Dynamic blocks are used to generate repeated configuration blocks dynamically in Terraform.
 
-## 43. What is the difference between local-exec and remote-exec provisioners?
-The local-exec provisioner executes commands on the machine running Terraform,
-while the remote-exec provisioner runs commands on a remote resource. Both are
-used for configuration or bootstrap tasks. Remote provisioners require SSH or
-WinRM access to the resource. Provisioners should be used sparingly, as they can
-complicate infrastructure management. Instead, prefer configuration management
-tools like Ansible.
-
-## 44. How do you initialize a Terraform configuration with a specific backend?
+## 39. How do you initialize a Terraform configuration with a specific backend?
+```
 terraform init -backend-config=<config_file>
-
-## 45. How do you enable debugging logs in Terraform?
+```
+## 40. How do you enable debugging logs in Terraform?
+```
 TF_LOG=DEBUG terraform apply
+```
 
-## 46. How do you refresh the Terraform state file with the current resource states?
+## 41. How do you refresh the Terraform state file with the current resource states?
+```
 terraform refresh
-
-## 48. How do you replace a resource in Terraform without modifying other resources?
+```
+## 42. How do you replace a resource in Terraform without modifying other resources?
+```
 terraform apply -replace=<resource_name>
-
-## 49. What is the purpose of a Terraform workspace?
+```
+## 43. What is the purpose of a Terraform workspace?
 Terraform workspaces allow you to maintain separate state files for the same
 configuration. This feature is helpful when managing multiple environments like dev,
 staging, and prod. Each workspace has its own state file, isolating resources between
@@ -553,27 +565,34 @@ environment management but should not replace robust CI/CD practices.
 
 
 
-## 52. What is Terraform Cloud, and how is it different from Terraform CLI?
+## 44. What is Terraform Cloud, and how is it different from Terraform CLI?
 Terraform Cloud is a SaaS offering by HashiCorp for managing Terraform workflows in
 a collaborative environment. It provides features like remote execution, policy
 enforcement, and state storage. Terraform CLI is the local command-line tool used for
 applying configurations. Terraform Cloud integrates with CLI and enhances teambased workflows with governance and version control.
 
-## 53. How do you switch to a different workspace?
+## 45. How do you switch to a different workspace?
+```
 terraform workspace select <workspace_name>
-
-## 54. How do you create a new workspace?
+```
+## 46. How do you create a new workspace?
+```
 terraform workspace new <workspace_name>
+```
 
-## 55. How do you import an existing resource into Terraform state?
+## 47. How do you delete a workspace?
+```
+terraform workspace delete <workspace_name>
+```
+## 48. How do you import an existing resource into Terraform state?
+```
 terraform import <resource_type>.<resource_name> <resource_id>
-
-## 56. How do you show the current Terraform workspace?
+```
+## 49. How do you show the current Terraform workspace?
+```
 terraform workspace show
-
-## 57. How do you format all Terraform configuration files?
-terraform fmt
-## 58. What are Terraform modules?
+```
+## 50. What are Terraform modules?
 Terraform modules are reusable pieces of Terraform configuration. They help
 organize code and promote reusability by encapsulating resource configurations.
 Modules can be local or fetched from remote repositories like GitHub or Terraform
@@ -581,20 +600,20 @@ Registry. They simplify complex setups by abstracting details. Use modules to
 maintain consistency across environments.
 
 
-## 60. What is the difference between count and for_each in Terraform?
+## 51. What is the difference between count and for_each in Terraform?
 The count parameter creates multiple resource instances based on a numeric value.
 The for_each parameter, introduced in Terraform 0.12, allows iteration over a
 collection like maps or sets. Use count for numeric-based replication and for_each
 for more flexible scenarios. Both parameters simplify resource creation and reduce
 redundancy.
 
-## 61. How does Terraform handle provider versions?
+## 52. How does Terraform handle provider versions?
 Terraform uses the required_providers block in the configuration file to specify
 provider versions. This ensures compatibility and prevents unexpected issues from
 version changes. When you run terraform init, it downloads the specified provider
 version. Locking provider versions is a best practice for stability.
 
-## 62. What are the types of Terraform provisioners?
+## 53. What are the types of Terraform provisioners?
 - Terraform provisioners are used to run scripts or commands on resources after they are created.
 - They are generally not recommended for regular use, but helpful in special cases.
 
@@ -616,34 +635,39 @@ version. Locking provider versions is a best practice for stability.
 
 - Copies files from local machine to a remote resource
 
-## 63. How do you manually lock a Terraform state file?
+## 54. How do you manually lock a Terraform state file?
+```
 terraform state lock
-
-## 64. How do you list all state files in a remote backend?
+```
+## 55. How do you list all state files in a remote backend?
+```
 terraform state list
-
-## 65. How do you taint a resource to force recreation?
+```
+## 56. How do you taint a resource to force recreation?
+```
 terraform taint <resource_name>
-
-## 66. How do you untaint a resource?
+```
+## 57. How do you untaint a resource?
+```
 terraform untaint <resource_name>
-
-## 67. How do you move a resource in the state file to a new address?
+```
+## 58. How do you move a resource in the state file to a new address?
+```
 terraform state mv <source_address> <destination_address>
-
-## 70. What is a Terraform sentinel policy?
+```
+## 59. What is a Terraform sentinel policy?
 Sentinel is HashiCorp's policy-as-code framework used to enforce governance in
 Terraform Cloud. It allows you to define rules for infrastructure provisioning, such as
 cost constraints or resource limits. Policies are written in the Sentinel language and
 applied to runs in Terraform Cloud. Sentinel ensures compliance and best practices.
 
-## 71. What is the purpose of the terraform output command?
+## 60. What is the purpose of the terraform output command?
 The terraform output command displays the output values defined in the
 configuration. These values can be used as inputs for other scripts or applications.
 Outputs are declared in the output block and provide access to resource attributes.
 Use it to share essential information from your Terraform setup.
 
-## 72 What is the lifecycle of a Terraform resource?
+## 61 What is the lifecycle of a Terraform resource?
 
 ## Answer (Interview Notes):
 - The lifecycle of a Terraform resource describes how Terraform manages resources from start to end.
@@ -684,124 +708,136 @@ Use it to share essential information from your Terraform setup.
 
 ## One-line answer:
 - Lifecycle meta-arguments control resource creation, update, and deletion behavior.
-## 73. How do you remove a resource from the Terraform state file?
+## 62. How do you remove a resource from the Terraform state file?
+```
 terraform state rm <resource_name>
-
-## 75. How do you print the plan to a file for review?
+```
+## 63. How do you print the plan to a file for review?
+```
 terraform plan -out=<plan_file>
-
-## 76. How do you apply changes from a saved plan file?
+```
+## 64. How do you apply changes from a saved plan file?
+```
 terraform apply <plan_file>
-
-## 77. How do you list all resources in the current Terraform state?
+```
+## 65. How do you list all resources in the current Terraform state?
+```
 terraform state list
+```
 
-
-## 81. What is the role of provider plugins in Terraform?
+## 66. What is the role of provider plugins in Terraform?
 Provider plugins allow Terraform to interact with various infrastructure platforms like
 AWS, Azure, or GCP. They translate Terraform configurations into API calls specific to
 the platform. Each provider has its own set of resource types and data sources.
 Plugins are downloaded automatically during terraform init.
 
-## 83. How do you reinitialize the working directory in Terraform?
+## 67. How do you reinitialize the working directory in Terraform?
+```
 terraform init -reconfigure
-
-## 84. How do you upgrade Terraform provider plugins to their latest version?
+```
+## 68. How do you upgrade Terraform provider plugins to their latest version?
+```
 terraform init -upgrade
-
-## 85. How do you refresh the state file to reflect changes made outside of Terraform?
+```
+## 69. How do you refresh the state file to reflect changes made outside of Terraform?
+```
 terraform refresh
-
-## 86. How do you generate a human-readable output for debugging Terraform state?
+```
+## 70. How do you generate a human-readable output for debugging Terraform state?
+```
 terraform show
-
-## 87. How do you check the version of Terraform installed on your system?
+```
+## 71. How do you check the version of Terraform installed on your system?
+```
 terraform version
+```
+## 72. What are data sources in Terraform?
+Data sources in Terraform fetch information from existing resources or external systems without creating new resources.
 
-## 88. What are data sources in Terraform?
-Data sources allow you to fetch data from external systems or existing resources.
-They do not create or manage resources but provide information used in
-configurations. For example, you can use a data source to retrieve an existing VPC ID
-in AWS. Data sources improve flexibility and prevent hardcoding.
-
-## 89. How does Terraform handle resource replacement?
+## 73. How does Terraform handle resource replacement?
 Terraform replaces resources by first destroying the existing resource and then
 recreating it. This behavior is triggered when changes to the resource configuration
 require replacement (e.g., changing immutable attributes). You can control this
 process using lifecycle rules like create_before_destroy.
 
 
-## 91. What are some best practices for writing Terraform code?
-o Use modules for reusability and organization.
-o Lock provider and Terraform versions.
-o Store state files securely in remote backends.
-o Use variables and outputs for flexibility.
-o Regularly review and validate configurations.
+## 74. What are some best practices for writing Terraform code?
+## Answer
+- Use modules for reusability and organization.
+- Lock provider and Terraform versions.
+-  Store state files securely in remote backends.
+-  Use variables and outputs for flexibility.
+- Regularly review and validate configurations.
 
-## 92. How does Terraform manage state for resources created outside Terraform?
-Terraform can import existing resources into its state file using the terraform import
-command. After importing, you need to update the configuration file to match the
-resource attributes. This allows Terraform to manage the resource moving forward.
+## 75. How does Terraform manage state for resources created outside Terraform?
+## Answer
+- You need to update your .tf configuration to match the imported resource.
 
-## 93. How do you output specific details from the state file?
+- terraform import only adds the existing resource to Terraform’s state file; it does not update the resource or configuration.
+
+- Then run terraform plan to see if any changes are needed.
+
+- Finally, run terraform apply to sync Terraform configuration with the actual resource.
+
+- If the configuration already matches, apply will make no changes, but it’s best practice to run it.
+
+## 76. How do you output specific details from the state file?
+```
 terraform output <output_name>
+```
 
-## 94. How do you lock a Terraform state file manually?
-- Ans) terraform state lock
-
-## 95. How do you remove an outdated provider version?
+## 77. How do you remove an outdated provider version?
+```
 terraform providers mirror <directory>
-
-## 96. How do you check resource dependencies in the state file?
+```
+## 78. How do you check resource dependencies in the state file?
+```
 terraform state show <resource_name>
-
-## 97. How do you enable debug logging for Terraform commands?
+```
+## 79. How do you enable debug logging for Terraform commands?
+```
  TF_LOG=DEBUG terraform <command>
+```
+## 81 If a resource is broken or not working properly, how can you force Terraform to recreate it?
+or 
+## How do you replace a resource in Terraform without changing its configuration?
 
-## 98. What is the use of terraform taint?
-The terraform taint command marks a resource for forced recreation on the next
-terraform apply. It is used when a resource needs to be replaced without changing its
-configuration. After marking a resource, Terraform destroys and recreates it during
-the next apply. This ensures any underlying issues are resolved.
+- In Terraform, a broken or faulty resource can be forced to recreate.
+- Older versions used terraform taint <resource>, but now terraform apply -replace="<resource>" directly replaces it in one step.
+## example
+```
+# Old way
+terraform taint aws_instance.my_server
+terraform apply
 
-## 102. How does Terraform handle provider authentication?
-Terraform uses provider-specific authentication mechanisms, such as AWS
-credentials or Azure service principals. Credentials can be stored in environment
-variables, configuration files, or directly in the Terraform provider block. Secure
-handling of credentials is critical for production environments.
-## 103. How do you taint a specific resource?
- terraform taint <resource_name>
+# Modern way
+terraform apply -replace="aws_instance.my_server"
+```
+---
+## 82 How does Terraform authenticate with AWS in a Jenkins pipeline?
+## Answer (Simple English)
 
-## 104. How do you remove a tainted resource without recreating it?
- terraform untaint <resource_name>
+- In Jenkins, Terraform authenticates with AWS using IAM roles or secure credentials.
+The Jenkins agent usually runs on an EC2 instance with an IAM role attached.
+Terraform automatically uses this role to access AWS without storing access keys.
 
-## 105. How do you move a resource in the state file?
+## How does Terraform authenticate with GCP in a Jenkins pipeline?
+## Answer
+
+- Terraform authenticates with GCP using a service account.
+The service account key is stored securely in Jenkins credentials and injected into the pipeline as an environment variable.
+## 83. How do you move a resource in the state file?
  terraform state mv <source> <destination>
 
-## 106. How do you remove an invalid resource from the state file?
- terraform state rm <resource_name>
-
-## 107. How do you check which Terraform commands are available?
+## 84. How do you check which Terraform commands are available?
+```
  terraform --help
-#
-## 109. What are resource arguments in Terraform?
-Resource arguments define the properties and configurations of a resource. For
-example, in AWS, arguments like ami, instance_type, and tags define an EC2
-instance. Arguments can take static values, variables, or expressions. Correct
-argument usage ensures desired resource behavior.
+```
 
-## 110. What are provider aliases in Terraform?
+## 85. What are provider aliases in Terraform?
 Provider aliases allow multiple instances of the same provider within a configuration.
 For example, if you need to deploy resources in multiple AWS regions, you can create
 provider blocks with aliases for each region. Use aliases to specify which provider
 instance a resource should use.
 
-## 111. How do you create a new workspace?
-- Ans) terraform workspace new <workspace_name>
-
-## 112. How do you switch to a different workspace?
-- Ans) terraform workspace select <workspace_name>
-
-## 113. How do you delete a workspace?
-- Ans) terraform workspace delete <workspace_name>
 

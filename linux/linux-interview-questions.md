@@ -67,7 +67,17 @@ ps -ef  |  grep  process
 ## 15)how to check free memory  or available  memory of the server
 `
 free -m
+or
+cat /proc/meminfo
 `
+
+## 15)how to check free cpu  or available  cpu of the server
+`
+top
+or
+cat /proc/cpuinfo
+`
+
 ## 16)	how to check which ports are running in the server
 `
 netstat -ntlp
@@ -157,22 +167,23 @@ Fi
  ans) ssh-key gen -t -b 2048
      - id_ras 
      - id_rsa.pub
-## 40 how to do permaent mount
+## 31 how to do permaent mount
   #Vim /etc/fstab
   ```
    /dev/xvda  /opt       ext4   ext4   defaults  0 0
   ```
   -  Mount –a
-## 41 Log paths in httpd web servers
+## 32 Log paths in httpd web servers
   - /var/log/messges --> message logs available
   - /var/log/errorlogs  --> error logs available
   - /var/log/accesslogs --> Access logs available
   - /var/log/securelog  --> security logs available
 
-## 42 If some web servers are working on http port how can u change that is into https
+## 33 If some web servers are working on http port how can u change that is into https
   ans)add these lines in /etc/httpd/conf/httpd.conf to redirect http to https:
   ```
       RewriteEngine On
       RewriteCond %{HTTPS} off
       RewriteRule (.*) https://%{SERVER_NAME}/$1 [R,L]
   ```
+## 
