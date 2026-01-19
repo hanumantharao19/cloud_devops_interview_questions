@@ -5,17 +5,17 @@ It is used to create, update, and manage infrastructure using code.
 Terraform works with multiple cloud providers like AWS, Azure, GCP, and also on-premise systems.
 It follows a declarative approach, meaning we define what we want, and Terraform figures out how to create it.
 
-Key features:
+## Key features:
 
-Cloud-agnostic
+- Cloud-agnostic
 
-Declarative syntax
+- Declarative syntax
 
-State management
+- State management
 
-Version control support
+- Version control support
 
-Reusable modules
+- Reusable modules
 ## 2. What are the main components of Terraform?
 Terraform has the following main components:
 
