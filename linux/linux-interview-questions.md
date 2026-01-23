@@ -187,3 +187,72 @@ Fi
       RewriteRule (.*) https://%{SERVER_NAME}/$1 [R,L]
   ```
 ## 
+
+72. What is chmod?
+
+Changes file permissions.
+
+73. What is chown?
+
+Changes file ownership.
+
+74. What is cron?
+
+Job scheduler in Linux.
+
+75. How to schedule a script?
+
+Using crontab -e.
+
+76. What is a background process?
+
+A process running with &.
+
+77. What is nohup?
+
+Runs command even after logout.
+
+78. What is ps?
+
+Shows running processes.
+
+79. What is top?
+
+Displays real-time process usage.
+
+80. What is df?
+
+Shows disk usage.
+
+69. What is output redirection?
+
+Redirecting output using > or >>.
+
+70. Difference between > and >>?
+
+> overwrites, >> appends.
+
+71. What is a pipe (|)?
+
+Passes output of one command to another.
+
+83. What is curl?
+
+Used for API and HTTP requests.
+
+84. What is wget?
+
+Used to download files.
+
+85. What is logging in shell?
+
+Saving script output to a file.
+
+
+99. What is .bashrc?
+
+Executed for interactive shell sessions.
+
+100. What is .bash_profile?
+
+Executed during login shells.

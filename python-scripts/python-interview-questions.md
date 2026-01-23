@@ -1,76 +1,265 @@
+
 ## 1. What is Python?
+- Python is a high-level, interpreted programming language known for simplicity and readability.
 
-A high-level, interpreted, dynamically-typed programming language.
+## 2. Is Python compiled or interpreted?
+- Python is interpreted, but it first compiles code into bytecode before execution.
 
-## 2. What are Python’s key features?
+## 3. What are Python’s key features?
+- Easy to learn
+- Interpreted
+- Object-oriented
+- Large standard library
+- Dynamically typed
+-
+## 4. What is PEP 8?
+- PEP 8 is the style guide for writing clean and readable Python code.
 
-Interpreted
+## 5. What are variables in Python?
+- Variables are used to store data values and don’t require explicit data types.
 
-Object-oriented
+## 6. What are Python data types?
+- Common types: int, float, str, list, tuple, set, dict.
 
-Dynamically typed
+## 7. What is type casting?
+- Converting one data type into another, e.g., int("10").
 
-Extensive libraries
+## 8. What is indentation in Python?
+- Indentation defines code blocks and is mandatory in Python.
 
-Easy syntax
+## 9. What is a comment in Python?
+- Comments explain code and start with #.
 
-3. What is PEP 8?
+## 10. What is None in Python?
+- None represents the absence of a value.
 
-## A style guide for writing clean, readable Python code.
+## 11. What are conditional statements?
+- if, elif, and else control decision-making.
 
-## 4. What is the difference between list and tuple?
-List	Tuple
-Mutable	Immutable
-Slower	Faster
-Uses []	Uses ()
-## 5. What is a dictionary?
+## 12. What are loops in Python?
+- for and while loops repeat code execution.
 
-A key-value pair data structure:
-{"name": "Hanumanth", "age": 26}
+## 13. What is the difference between break and continue?
+- break stops the loop
+- continue skips the current iteration
 
-## 6. What is slicing?
+## 14. What is a pass statement?
+- pass is a placeholder that does nothing.
 
-Extracting a portion of list/string:
+## 15. What is a range function?
+- range() generates a sequence of numbers.
 
-data = [1,2,3,4]
-data[1:3]  # [2,3]
+## 16. What is a function?
 
-## 7. What is the difference between == and is?
+- A function is a reusable block of code that performs a task.
 
-== compares values
+## 17. What is the difference between parameters and arguments?
 
-is compares memory address (identity)
+- Parameters: variables in function definition
+- Arguments: actual values passed
 
-## 8. What are Python data types?
+## 18. What is a lambda function?
 
-int
+- A small anonymous function written in one line.
 
-float
+## 19. What is recursion?
+- A function calling itself.
 
-bool
+## 20. What is *args and **kwargs?
 
-str
+- *args handles multiple positional arguments
 
-list
+- **kwargs handles keyword arguments
 
-tuple
+## 21. What is a list?
 
-dict
+- A mutable, ordered collection of elements.
 
-set
+## 22. What is a tuple?
 
-## 9. Explain function vs lambda.
+- An immutable, ordered collection.
 
-Functions:
+## 23. What is a set?
 
-def add(a,b): return a+b
+- An unordered collection of unique elements.
+
+## 24. What is a dictionary?
+
+- A key-value pair data structure.
+
+## 25. Difference between list and tuple?
+
+- Lists are mutable; tuples are immutable.
+
+## 26. What is OOP?
+
+- Object-Oriented Programming organizes code using objects and classes.
+
+## 27. What is a class?
+
+- A blueprint for creating objects.
+
+## 28. What is an object?
+
+- An instance of a class.
+
+## 29. What is inheritance? and types of inheritance
+
+- One class acquiring properties of another.
+## types of inheritance
+- Single
+- Multiple
+- Multilevel
+- Hierarchical
+- Hybrid
+## 30. What is polymorphism?
+
+- Same function name with different behavior.
 
 
-Lambda:
+## 31. Explain Python garbage collection.
 
-lambda a,b: a+b
+- Garbage collection in Python is automatic memory management that removes unused objects using reference counting and cyclic garbage collection.
 
-## 10. What is a decorator?
+## 32. What is an exception?
+
+- An error that occurs during execution.
+
+## 33. How do you handle exceptions?
+
+- Using try, except, else, and finally.
+
+## 34. What is finally?
+
+- Block that always executes, even if an error occurs.
+
+## 35. What is the difference between error and exception?
+
+- Errors stop execution; exceptions can be handled.
+
+## 36. What is a module?
+
+- A Python file containing reusable code.
+
+## 37. How do you import a module?
+
+- Using import module_name.
+
+## 38. What is a package?
+
+- A collection of Python modules.
+
+## 39. How do you read a file in Python?
+
+- Using open() and read methods.
+
+## 40. What is the use of with statement?
+
+- Automatically closes files after use.
+
+## 41. What is list comprehension?
+
+- A concise way to create lists.
+
+## 42. What is a generator?
+
+- A function that returns values one at a time using yield.
+
+## 43. What is slicing?
+
+- Extracting parts of sequences using indexes.
+
+## 44. What is __init__?
+
+- A constructor method that initializes objects.
+
+## 45. What is virtual environment?
+
+- An isolated Python environment for dependencies.
+
+## 46. What is pip?
+
+- Python’s package installer.
+
+## 47. What is multithreading?
+
+- Running multiple threads concurrently.
+
+## 48. What is GIL?
+
+- Global Interpreter Lock ensures one thread executes Python bytecode at a time.
+
+## 49. What is Python used for?
+
+- Web development, automation, data science, AI, DevOps.
+
+## 50. Why is Python popular?
+
+- Because it is simple, powerful, and versatile.
+
+
+## 51 How is Python used in DevOps?
+## Answer
+- Python is used for CI/CD automation, infrastructure management, monitoring, scripting, and cloud automation.
+
+## 51 What Python libraries are commonly used in DevOps?
+## Answer
+- os, sys – system operations
+- subprocess – run shell commands
+- boto3 – AWS automation
+- requests – API calls
+
+## 52 How do you run a shell command in Python?
+- Use the subprocess module to execute shell commands.
+
+## 53. How do you read environment variables in Python?
+- Using os.environ or os.getenv().
+
+## 54. How do you automate server tasks using Python?
+## Answer
+- Use the os module for file operations, environment variables, and directory management.
+- Use the subprocess module to run system commands like starting or stopping services.
+- Use the shutil module for file copying, moving, and cleanup tasks.
+- Use the schedule or cron (via subprocess) for task scheduling.
+- Use the logging module to track script execution and errors.
+
+## 55 . What is virtualenv and why is it used?
+- It creates an isolated Python environment to avoid dependency conflicts.
+
+## 56. How do you handle configuration files in Python?
+
+- Using YAML, JSON, or INI files with libraries like yaml or json.
+
+## 57 How do you make API calls in Python?
+- Using the requests library.
+
+
+## 42. How to handle API calls?
+
+Using requests library:
+
+import requests
+requests.get(url).json()
+
+## 58. What is idempotency and why is it important?
+- Running a script multiple times should give the same result.
+
+## 59. How do you log in Python?
+
+- Using the built-in logging module.
+
+## 60. How do you handle exceptions in automation scripts?
+
+- Using try-except blocks to prevent pipeline failures.
+
+## 61. How do you secure secrets in Python scripts?
+- Using environment variables or secret managers.
+
+## 62. How do you check script exit status in Python?
+- Using return codes from subprocess.
+
+
+## 63 What is a decorator?
 
 A function that modifies another function.
 
@@ -82,81 +271,10 @@ def login_required(func):
         func()
     return wrapper
 
-## 11. What are args and kwargs?
-
-Used to pass variable arguments.
-
-def test(*args, **kwargs):
-    print(args, kwargs)
-
-## 12. What is list comprehension?
-
-Short form of creating lists.
-
-squares = [x*x for x in range(10)]
-
-## 13. What is a generator?
-
-A function that yields values one by one — memory efficient.
-
-def gen():
-    yield 1
-    yield 2
-
-## 14. What is the difference between deep copy and shallow copy?
-
-Shallow copy → Only top-level copy
-Deep copy → Full clone of all nested objects
-
-## 15. What is monkey patching?
-
-Changing behavior of code at runtime.
-
-## 16. What is GIL?
-
-Global Interpreter Lock — only one thread executes Python bytecode at a time.
-
-## 17. How to handle exceptions?
-try:
-    x = 10/0
-except ZeroDivisionError:
-    print("Error")
-
-## 18. Difference between class and object?
-
-Class → blueprint
-Object → instance of class
-
-## 19. Types of inheritance?
-
-Single
-
-Multiple
-
-Multilevel
-
-Hierarchical
-
-Hybrid
-
-## 20. What are class variables vs instance variables?
-
-Class variables: shared
-
-Instance variables: object-specific
-
-## 21. What is method overloading?
-
-Python does not support true overloading; can be mimicked using default arguments.
-
-## 22. What is method overriding?
-
-Child class redefining parent method.
-
-## 23. What are magic methods?
+## 64. What are magic methods?
 
 Special methods like:
-
+```
 __init__
 
 __str__
@@ -164,106 +282,52 @@ __str__
 __len__
 
 __add__
-
-## 24. What is an abstract class?
+```
+## 65. What is an abstract class?
 
 Class containing abstract methods using abc module.
 
-## 25. What is encapsulation?
+## 66. What is encapsulation?
 
 Hiding implementation details.
 _protected, __private
 
 
-## 26. What is multithreading?
+## 67. What is multithreading?
 
 Run multiple threads concurrently.
 
 But GIL prevents true parallel CPU execution.
 
-## 27. Multiprocessing vs Multithreading?
-Multithreading	Multiprocessing
-Shared memory	Separate memory
-Affected by GIL	No GIL
-Good for I/O	Good for CPU tasks
-## 28. What is asyncio?
+## 68. What is asyncio?
 
 Used for asynchronous, non-blocking code.
 
-## 29. What is a context manager?
-
-Used with with block.
-
-with open("file.txt") as f:
-    data = f.read()
-
-## 30. How does Python memory management work?
-
-Reference counting
-
-Garbage collector
-
-Private heap
-
-## 31. Explain Python garbage collection.
-
-Automatic removal of unused objects using reference counting and cyclic GC.
-
-## 32. What is pickling?
+## 69. What is pickling?
 
 Serializing objects.
 
 pickle.dump(obj, file)
 
-
-## 33. Reverse a string
-s[::-1]
-
-## 34. Find the largest number in a list
-max(lst)
-
-## 35. Remove duplicates
-list(set(lst))
-
-## 36. Fibonacci program
+## 70. Fibonacci program
 def fib(n):
     a,b = 0,1
     for i in range(n):
         a,b = b,a+b
     return a
 
-## 37. Check palindrome
-s == s[::-1]
-
-## 38. Count occurrences of each element
-from collections import Counter
-Counter(lst)
-
-## 39. Read file and count lines
-len(open("file.txt").readlines())
-
-## 40. Swap two numbers
-a, b = b, a
-
-## 41. How to read a large file efficiently?
-
-Use generator:
-
-for line in open("bigfile.txt"):
-    print(line)
-
-## 42. How to handle API calls?
+## 71. How to handle API calls?
 
 Using requests library:
 
 import requests
 requests.get(url).json()
 
-## 43. How to connect Python with SQL?
+## 72. How to connect Python with SQL?
 
 Using pymysql, psycopg2, sqlite3.
 
-## 44. How do you improve Python performance?
+## 73. How do you improve Python performance?
 
 Use NumPy
 
@@ -273,35 +337,16 @@ Use generators
 
 Use multiprocessing
 
-## 45. How to write a REST API in Python?
+## 74. How to write a REST API in Python?
 
 Using FastAPI or Flask
 
-## 46. What is venv?
+## 75. What is venv?
 
 Isolated environment for dependencies.
 
-## 47. How to package Python code?
-
-Using:
-
-setup.py
-
-requirements.txt
-
-pyproject.toml
 
 
-## 48. Pandas vs NumPy?
-Pandas	NumPy
-DataFrames	Arrays
-Labelled	Indexed
-Slow	Fast
 
-## 49. Explain broadcasting.
 
-Automatic expansion of arrays in NumPy operations.
 
-## 50. What is vectorization?
-
-Replacing loops with NumPy operations for speed.

@@ -1,12 +1,13 @@
 ## 1. What is a shell?
-
-A command-line interpreter that executes the commands you type.
-
+- A shell is a command-line interpreter used to communicate with the operating system.
 ## 2. What is a shell script?
+- Shell scripting is writing a text file with Linux shell commands to automate tasks, where the commands are executed one after another by the shell.
 
-A text file containing shell commands that the system executes sequentially.
+## 3. What is Bash?
 
-## 3. Common shells in Linux?
+Bash is the most commonly used shell in Linux systems.
+
+## 4 Common shells in Linux?
 
 Bash (most common)
 
@@ -19,50 +20,59 @@ Ksh
 Csh
 
 ## 4. How to make a script executable?
+```
 chmod +x script.sh
-
+```
 ## 5. How to run a shell script?
+```
 ./script.sh
 sh script.sh
 bash script.sh
-
-## 6. What is #!/bin/bash?
-
-Shebang line that tells the OS which interpreter to use for the script.
-
-## 7. How to define a variable?
-name="Hanumanth"
-
+```
+## 6 What is the shebang line (#!/bin/bash) in shell scripting?
+- The shebang line (#!/bin/bash) tells the operating system which shell interpreter should be used to execute the script.
+## 7. How do you declare a variable?
+```
+name="Hanumanth" # (no spaces allowed)
+```
 ## 8. How to access a variable?
-echo $name
+- echo $name
 
 ## 9. What are positional parameters?
 
-Arguments passed to script.
-
- Parameter	Meaning
- $0	script name
- $1, $2...	first, second argument
- $#	number of arguments
- $@	all arguments
+- Arguments passed to script.
+```
+ $0	- It represents the script name.
+ $1, $2...	They are positional arguments passed to the script.
+ $#	It gives the number of arguments passed.
+ $@ - It represents all arguments individually.
  $*	all arguments as single string
-## 10. How to take input from user?
+```
+## 10. What is $??
+
+- It gives the exit status of the last executed command.
+## 11 How do you take input from the user in shell scripting?
+- Use the read command to take input from the user and store it in a variable.
+```
+#!/bin/bash
+echo "Enter your name:"
 read name
-
-
-## 11. How to write an if condition?
+echo "Hello, $name!"
+```
+## 12. How to write an if condition?
 if [ condition ]; then
    commands
 fi
 
-## 12. How to write loops?
+## 13. How to write loops?
 
-for loop
-
+- A loop in shell scripting is used to execute a block of commands repeatedly until a certain condition is met.
+```
 for i in 1 2 3; do
   echo $i
 done
 
+##  while loop Runs as long as a condition remains true.
 
 while loop
 
@@ -71,8 +81,8 @@ while [ $count -le 5 ]; do
   echo $count
   count=$((count+1))
 done
-
-## 13. What is $? in shell?
+```
+## 14. What is $? in shell?
 
 Exit status of last command.
 
@@ -80,55 +90,61 @@ Exit status of last command.
 
 non-zero → failure
 
-## 14. Difference between == and = in shell?
+## 15. Difference between == and = in shell?
 
 = used for string comparison
 
 == supported in [[ ]]
 
-## 15. Arithmetic in shell?
-echo $((5+7))
 
+## 16. What is logical AND?
 
-## 16. Check if file exists
+&& – both conditions must be true.
+
+## 17. What is logical OR?
+
+|| – any one condition must be true.
+
+## 18. What is arithmetic expansion?
+
+- Used for calculations: $((a + b)).
+
+## 19. Check if file exists
 if [ -f file.txt ]; then
    echo "exists"
 fi
-
-## 17. Check directory exists
+## 20. Check directory exists
 if [ -d /home/test ]; then
    echo "directory exists"
 fi
 
-## 18. Read file line-by-line
+## 21. Read file line-by-line
 while read line; do
   echo $line
 done < file.txt
 
-## 19. Count lines in a file
-wc -l file.txt
+## 22 What is set -x and how is it used for debugging in shell scripts?
 
-## 20. What is set -e?
+- set -x enables debug mode in shell scripts by printing each command before it is executed, which helps identify conditional and logic issues.
 
-Exit immediately when a command fails.
+## 23. What is set -e in shell scripting and why is it used?
 
-## 21. What is set -x?
+set -e is used to stop the script or exit immediately when a command failure, ensuring error handling and script safety.
 
-Debug mode — prints every executed command.
 
-## 22. What is a function in Shell?
+## 24. What is a function in Shell?
 myfunc() {
   echo "Hello"
 }
 myfunc
 
-## 23. What is piping |?
+## 25. What is piping |?
 
 Sends output of one command to another.
 
 ls | grep txt
 
-## 24. What are environment variables?
+## 26. What are environment variables?
 
 Variables used by shell or OS.
 
@@ -136,78 +152,39 @@ List:
 
 printenv
 
-## 25. How to export a variable?
+## 27. How do you export a variable?
 export JAVA_HOME=/usr/local/java
 
-## 26. Difference between soft link and hard link?
-Soft Link	Hard Link
-Points to file path	Points to inode
-Breaks if source removed	Doesn’t break
-Can link directories	Cannot
-## 27. What is cron?
-
-Scheduler used for automation.
-
-List jobs:
-
-crontab -l
-
-## 28. What is grep?
-
-Pattern search tool.
-
-grep "error" logfile.txt
-
-## 29. What is awk?
-
-Text processing tool.
-
-Print 1st column:
-
-awk '{print $1}' file.txt
-
-## 30. What is sed?
-
-Stream editor used to replace text.
-
-Replace:
-
-sed -i 's/old/new/g' file.txt
-
-
-## 31. Write script to find large files (>100MB).
-find / -type f -size +100M
-
-## 32. Script to monitor CPU/Memory?
+## 28. Script to monitor CPU/Memory?
 top -b -n1 | grep "Cpu"
 free -m
 
-## 33. Delete all logs older than 7 days
+## 29. Delete all logs older than 7 days
 find /var/log -type f -mtime +7 -delete
 
-## 34. Script to check service is running
+## 30. Script to check service is running
 systemctl status nginx || systemctl start nginx
 
-## 35. Script to check disk usage & alert
+## 31. Script to check disk usage & alert
 df -h | awk '$5+0 > 80 {print "Disk Full"}'
 
-## 36. Script to backup a folder
+## 32. Script to backup a folder
 tar -czf backup.tar.gz /home/data
 
-## 37. Script to read usernames from file & create users
+## 33. Script to read usernames from file & create users
 while read user; do
    useradd $user
 done < users.txt
 
-## 38. Script to ping a server & send alert
+## 34. Script to ping a server & send alert
 ping -c 1 google.com || echo "Server down"
 
 🔹 SECTION 6 — ADVANCED DEVOPS-LEVEL QUESTIONS
-## 39. Difference: #!/bin/bash vs #!/usr/bin/env bash?
+## 35. Difference: #!/bin/bash vs #!/usr/bin/env bash?
 
 /usr/bin/env bash → more portable.
 
-## 40. What is here document (EOF)?
+## 36. What is here document (EOF)?
 
 Used to pass multi-line data to command.
 
@@ -215,44 +192,156 @@ cat <<EOF
 Hello
 EOF
 
-## 41. What is trap?
+## 37 What is trap in shell scripting and why is it used?
+- trap handles signals like Ctrl+C and allows cleanup actions before a script exits.
+- A notification sent to a process, like SIGINT when you press Ctrl+C
+```
+#!/bin/bash
 
-Catch signals like Ctrl+C.
+trap "echo 'Script interrupted'; exit" SIGINT
 
-trap "echo exiting" SIGINT
+while true; do
+  sleep 1
+done
 
-## 42. How to write parallel jobs (xargs)?
-cat list.txt | xargs -n1 -P4 sh script.sh
+```
+## 38 What is xargs in Linux and why is it used?
+- xargs is used to pass output of one command as arguments to another command.
+## exmaple
+```
+find /tmp -name "*.log" | xargs rm
 
-## 43. Shell script for JSON parsing?
-
+- find searches for all .log files in /tmp
+- xargs passes those file names to rm
+- rm deletes all the found .log files
+```
+## 39. Shell script for JSON parsing?
+```
 Using jq:
 
 cat file.json | jq '.name'
+```
+## 40. What is subshell?
 
-## 44. How to check last executed command status?
-echo $?
+- Any command inside parentheses runs in new shell.
 
-## 45. What is subshell?
+- (ls; pwd)
 
-Any command inside parentheses runs in new shell.
+## 41. Write script to reverse a string
+- echo "$str" | rev
 
-(ls; pwd)
-
-
-## 46. Write script to reverse a string
-echo "$str" | rev
-
-## 47. Count number of files in directory
-ls | wc -l
-
-## 48. Find even numbers from 1–50
+## 42. Find even numbers from 1–50
+```
 for i in {1..50}; do
   [ $((i % 2)) -eq 0 ] && echo $i
 done
-
-## 49. Script to validate email
+```
+## 43. Script to validate email
+```
 [[ $email =~ ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$ ]]
-
-## 50. Remove duplicates from a text file
+```
+## What does the uniq command do in Linux?
+- The uniq command removes duplicate consecutive lines from a file or input.
+```
 sort file.txt | uniq
+```
+## 44. What is set -u?
+
+- Throws an error when using undefined variables.
+
+## 45. What is an environment variable?
+
+- A variable available to all child processes.
+
+## 46. What is $PATH?
+
+- It stores directories where executable commands are located.
+
+## 47. What is command substitution?
+
+- Running a command and storing its output using $(command).
+
+## 48. Difference between single and double quotes?
+
+- Single quotes don’t expand variables; double quotes do.
+
+## 49. How do you compare numbers?
+
+- Using -eq, -gt, -lt.
+
+## 50. How do you compare strings?
+
+- Using = or !=.
+
+## 51. What does unset do?
+
+- Removes a variable.
+
+## 52. What does break do?
+
+- Exits the loop immediately.
+
+## 53. What does continue do?
+- Skips current iteration and moves to next.
+
+## 54. What does -x check?
+- Checks if a file is executable.
+
+## 55. What is negation operator?
+
+- ! reverses condition result.
+
+## 56. What is an infinite loop?
+
+- A loop that never stops unless forced.
+
+## 57. How do you stop an infinite loop?
+
+- Using break or CTRL+C.
+
+## 58. What is idempotency?
+
+- Script gives same result on multiple runs.
+
+## 59 What is awk and what is its purpose in shell scripting?
+- awk is a text-processing tool used to extract, filter, and format data from files or command output, especially column-based data.
+## Print a specific column
+```
+awk '{print $1}' file.txt
+```
+## Print coloums if matching a condition
+```
+awk '$3 > 5000 {print $1, $3}' employees.txt
+```
+---
+## 60. What is sed in shell scripting and what is its purpose?
+
+- sed is used to search, replace, or delete text in files from the command line efficiently.
+## Replace a word in a file
+```
+sed 's/oldword/newword/' file.txt
+```
+## Delete empty lines in a file
+```
+sed '/^$/d' file.txt
+```
+---
+## 61 What is the cut command in shell scripting and why is it used?
+- cut is used to extract specific columns or fields from text or files, often when working with structured data like CSV or logs.
+## Extract the first column of a file
+```
+cut -d',' -f1 file.csv
+-d',' → uses comma as a delimiter
+
+-f1 → selects the first field/column
+```
+## 62 Why do we use cut and awk in shell scripting? What is the difference?
+## Answer
+- cut is used to quickly extract specific columns or characters from a file; it’s simple and fast.
+- awk is used for advanced text processing, including filtering, formatting, and calculations on data.
+
+
+
+
+
+
