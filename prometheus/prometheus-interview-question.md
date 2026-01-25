@@ -1,298 +1,114 @@
 ## 1. What is Prometheus?
 
-Prometheus is an open-source monitoring and alerting system designed for metrics-based monitoring.
-It uses:
+- Prometheus is an open-source monitoring and alerting tool used to collect, store, and monitor system and application metrics.
+---
+## 2 How does Prometheus work? Explain its architecture or workflow
 
-Pull-based scraping
+- Applications and servers expose metrics in a format Prometheus understands
 
-Multi-dimensional data model (labels)
+- Prometheus pulls (scrapes) these metrics at regular intervals
 
-PromQL query language
+- Metrics are stored in a time-series database
 
-## 2. What are the main components of Prometheus?
+- Data is queried using PromQL
 
-Prometheus Server – scrapes & stores metrics
+- Alerts are triggered through Alertmanager when thresholds are crossed
+---
+## 3. What are the main components of Prometheus?
 
-Exporter – exposes metrics (Node Exporter, cAdvisor, etc.)
+- Prometheus has the following main components:
 
-Alertmanager – sends alerts
+## Prometheus Server
 
-Pushgateway – for short-lived jobs
+- The core component
+- Scrapes metrics from targets, stores them in a time-series database, and evaluates rules
 
-Service Discovery – Kubernetes, EC2, Consul
+## Exporters
 
-## 3. What port Prometheus runs on?
+- Collect metrics from systems and applications
+- Examples: Node Exporter (servers), Kubernetes exporter, MySQL exporter
 
-Default: 9090
+## Client Libraries
 
-## 4. What is a metric?
+- Used by applications to expose custom metrics
+- Available for languages like Go, Python, Java
 
-A numerical value representing a system state, like:
+## Pushgateway
 
-CPU usage
+- Used for short-lived or batch jobs
+- Allows jobs to push metrics to Prometheus
 
-Memory
+## Alertmanager
+-  Handles alerts sent by Prometheus
+- Sends notifications via email, Slack, PagerDuty, etc.
 
-Pod restarts
+---
 
-Request latency
+## 4. What port Prometheus runs on?
 
-## 5. What is a time-series in Prometheus?
+-  Default: 9090
+---
+## 5. What is a time-series database in Prometheus?
 
-A metric tracked over time, stored with:
+- A time-series database in Prometheus stores metric values along with timestamps, allowing monitoring and analysis of data over time.
+---
+## 6 What is PromQL and What Is Its Purpose?
+- PromQL (Prometheus Query Language) is the query language used in Prometheus to read and analyze metrics stored in its time-series database.
 
-Metric name
+- PromQL is used to:
+## Fetch metrics
+Get current or historical metric values
+## Analyze performance
+- Calculate averages, rates, and percentages
+## Create alerts
+- Define alert rules (e.g., CPU > 80% for 5 minutes)
+## Build dashboards
 
-Labels
+- Used by Grafana to visualize metrics
 
-Timestamp
+---
 
-Value
+## 7. What is Prometheus Alertmanager and why is it used?
 
+- Receives alerts from Prometheus.
 
-## 6. Explain PromQL.
+- Deduplicates: If multiple alerts are identical, it avoids sending duplicates.
 
-PromQL is Prometheus' query language used to:
+- Groups alerts: Combines similar alerts into a single notification to avoid alert spam.
 
-filter
+- Sends notifications to configured receivers like Slack, email, PagerDuty, or webhooks.
 
-aggregate
-
-group
-
-compute rates
-
-Example:
-
-rate(http_requests_total[5m])
-
-## 7. Types of metrics in Prometheus?
-
-Counter – only increases (requests, errors)
-
-Gauge – increase/decrease (memory, temperature)
-
-Histogram – bucketed samples (latency)
-
-Summary – quantiles
-
-## 8. Difference between Histogram and Summary?
-Histogram	Summary
-Aggregatable across instances	Not aggregatable
-Stores buckets	Calculates quantiles
-Good for dashboards	Good for client-side computation
-## 9. What is Service Discovery in Prometheus?
-
-Dynamic discovery of targets:
-
-Kubernetes
-
-EC2
-
-Consul
-
-DNS
-
-Prometheus automatically updates targets without restarting.
-
-## 10. What is a scrape interval?
-
-How often Prometheus collects metrics.
-
-Example:
-
-scrape_interval: 15s
-
-## 11. What is Label in Prometheus?
-
-Key-value pairs for metric filtering.
-Example:
-
-node_cpu_seconds_total{mode="idle", cpu="0"}
-
-## 12. What is Label Cardinality?
-
-The number of possible combinations of labels.
-
-⚠️ High cardinality = Prometheus becomes slow.
-Examples:
-
-user_id
-
-transaction_id
-
-pod_uid
-
-## 13. What is AlertManager?
-
-Component that:
-
-Receives alerts from Prometheus
-
-Groups alerts
-
-Deduplicates
-
-Sends notifications (Slack, email, PagerDuty, Webhook)
-
-## 14. Difference between Prometheus and Grafana?
+---
+## 8. Difference between Prometheus and Grafana?
 
 Prometheus collects and stores metrics.
 Grafana visualizes metrics.
 
-## 15. What is federation in Prometheus?
-
-Federation = scrapping another Prometheus server.
-Used for:
-
-HA
-
-Multi-cluster setup
-
-Global metrics aggregation
-
-## 16. How to scale Prometheus?
-
-Prometheus is single-node, so scale using:
-
-Thanos
-
-Cortex
-
-Mimir
-
-These add:
-
-Long-term storage
-
-Multi-tenancy
-
-Horizontal scaling
-
-## 17. What is Thanos?
-
-A project that adds:
-
-Object storage (S3/GCS)
-
-Query across Prometheus instances
-
-Global dashboards
-
-## 18. What is Pushgateway?
-
-Used when metrics cannot be scraped:
-
-Cron jobs
-
-Short-lived scripts
-
-Prometheus normally pulls, Pushgateway pushes.
-
-## 19. How does Prometheus store data?
-
-Time-series stored in:
-
-TSDB blocks (2 hours)
-
-WAL (Write Ahead Log)
-
-## 20. What is "rate" and "irate" in PromQL?
-
-rate()
-
-Slow, smoothed average
-
-Used for dashboards
-
-irate()
-
-Fast, instant rate
-
-Used for alerts
-
-Example:
-
-rate(node_cpu_seconds_total[5m])
-
-## 21. Prometheus shows NO DATA. What do you check?
-
-Exporter is running
-
-Target is up
-
-Correct port
-
-Firewall rules
-
-Metrics endpoint reachable
-
-Wrong PromQL query
-
-Scrape interval too long
-
-## 22. High CPU usage in Prometheus — what could be the reason?
-
-High cardinality metrics
-
-Too many targets
-
-Huge PromQL queries
-
-Very short scrape interval
-
-## 23. Alerts are not firing — what do you check?
-
-Alert rule is valid
-
-Query returns data
-
-Evaluate interval
-
-AlertManager reachable
-
-Time window correctness
-
-Example mistake:
-
-for: 1m
-
-
-but scrape_interval is 2m.
-
-## 24. How to avoid high cardinality?
-
-Avoid labels like uuid, email, session_id
-
-Limit pod-level labels
-
-Avoid metrics per request
-
-## 25. You need to monitor microservices in Kubernetes — what exporters do you use?
-
-kube-state-metrics
-
-cAdvisor
-
-Node Exporter
-
-Application metrics (client libraries)
-
-Ingress metrics
-
-## 26. Prometheus uses 100GB of storage — what do you do?
-
-Increase retention only if required
-
-Move to long-term store (Thanos, Mimir)
-
-Reduce scrape interval
-
-Reduce unnecessary labels
-
-Delete unused metrics
-
-## 27. How to create recording rules?
+---
+## 9. Prometheus shows NO DATA. What do you check?
+
+- If Prometheus shows no data, check target status, metrics endpoint, scrape configuration, network access, and Prometheus logs.
+---
+## 10. High CPU usage in Prometheus — what could be the reason?
+
+- High CPU usage in Prometheus is usually caused by too many metrics(targets), short scrape intervals, expensive queries(long quries), or long data retention
+---
+## 11.Alerts are not firing in Prometheus — what should you check?
+- If alerts are not firing, check alert rule syntax, expression correctness, rule loading, target health, and Alertmanager configuration.
+---
+## 12 How does Prometheus store data? Does it use a database or EBS volume?
+- Prometheus stores metrics in its own built-in time-series database on local disk or a persistent volume; it does not use an external database
+
+## In Kubernetes:
+- Prometheus stores data on a Persistent Volume (PV)
+
+- This PV can be backed by:
+   - EBS (AWS)
+   - Persistent Disk (GCP)
+   - Azure Disk
+   - NFS
+---
+## 13. How to create recording rules?
 
 Used to precompute heavy queries and improve performance.
 
@@ -303,43 +119,85 @@ groups:
     expr: sum by (job) (http_in_progress_requests)
 
 🔹 Prometheus in Kubernetes Questions
-## 28. How does Prometheus discover pods in Kubernetes?
 
-Using:
+## 14 what is significance  of the job label in prometheus targets
+- The job label are used to groups related targets in Prometheus and helps in querying, aggregating, and organizing metrics efficiently.
+## 15 What are the commonly used exporters in Prometheus and why are they used?
 
-kubernetes_sd_config
+- Prometheus does not collect metrics directly from all systems, so it uses exporters—small applications that expose metrics in a format Prometheus understands. Commonly used exporters include:
 
+## Node Exporter
+- Collects system-level metrics from Linux servers
+- CPU, memory, disk, network usage
 
-Prometheus automatically finds:
+## cAdvisor / kube-state-metrics
+- Collects container and Kubernetes metrics
+- Pod CPU/memory usage, deployment status, node health
 
-Nodes
+## MySQL / PostgreSQL Exporter
+- Collects database metrics
+- Query performance, connections, cache hits
 
-Pods
+## Blackbox Exporter
 
-Services
+- Monitors external services via HTTP, DNS, TCP, ICMP
+- Checks website availability or latency
 
-Endpoints
+## Pushgateway
 
-## 29. What is kube-state-metrics?
+- Used for short-lived jobs to push metrics to Prometheus
+---
+## 16 What are the commonly used Prometheus functions, and when do we use them?
+Prometheus provides functions in PromQL to process and analyze metrics
+- rate() / irate() – Calculate per-second rate of counters for metrics like HTTP requests.
+- increase() – Shows total increase of a counter over a time period.
+- sum() / avg() – Aggregate metrics across instances or calculate average values.
+- histogram_quantile() – Compute percentiles (e.g., 95th percentile response time) from histogram metrics.
+```
+histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m]))
+```
+---
+## 17 What is the difference between Prometheus pull vs push model?
 
-Exporter that gives cluster state metrics:
+- Pull: Prometheus scrapes metrics from endpoints (default, most common)
+- Push: Short-lived jobs push metrics to Pushgateway (used for ephemeral jobs)
 
-Deployments
+---
+## 18 How do you handle long-term storage in Prometheus?
+- Prometheus stores data locally by default, which is fast but not suitable for long-term retention or very large-scale metrics.
 
-Pods
+- Thanos, Cortex, and VictoriaMetrics are additional software tools that integrate with Prometheus to provide long-term, scalable storage.
 
-Nodes
+- These tools store Prometheus metrics in object storage like S3 (AWS), GCS (Google Cloud), or Azure Blob, and also support high availability and global querying.
 
-PersistentVolumes
+---
+## 19 What is the difference between Node Exporter and kube-state-metrics?
 
-## 30. What is cAdvisor?
+- Node Exporter provides host-level system metrics (CPU, memory, disk), while kube-state-metrics provides Kubernetes object-level metrics like Deployments, Pods, and ReplicaSets status.
 
-Container-level metrics:
+---
+## 20 What types of metrics are available in Prometheus and what are their purposes?
 
-CPU
+## Counter
 
-Memory
+A metric that only increases over time
+Used for counting events like HTTP requests, errors, or jobs completed
+Example: http_requests_total
 
-I/O
+## Gauge
 
-Restarts
+- A metric that can go up or down
+- Used for values that fluctuate like CPU usage, memory, or queue size
+- Example: node_memory_Active_bytes
+
+## Histogram
+
+- Measures distributions of events over defined buckets
+- Used for latency, request duration, or response sizes
+- Example: http_request_duration_seconds_bucket
+
+## Summary
+
+- Similar to histogram but calculates quantiles like 50th, 95th percentile
+- Used for tracking request durations or latency percentiles
+- Example: http_request_duration_seconds
