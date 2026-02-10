@@ -1,27 +1,27 @@
 
-1. What problem does SRE actually solve in an organization?
+## 1. What problem does SRE actually solve in an organization?
 
-SRE ensures systems are reliable, scalable, and efficient while still allowing teams to ship fast. It balances feature velocity and stability using engineering principles, not manual ops.
+- SRE ensures systems are reliable, scalable, and efficient while still allowing teams to ship fast. It balances feature velocity and stability using engineering principles, not manual ops.
 
-2. How is SRE different from traditional DevOps?
+## 2. How is SRE different from traditional DevOps?
 
-DevOps focuses on culture and collaboration. SRE focuses on measurable reliability, SLIs/SLOs, and automation backed by data.
+- DevOps focuses on culture and collaboration. SRE focuses on measurable reliability, SLIs/SLOs, and automation backed by data.
 
-3. What is an SLI in real production terms?
+## 3. What is an SLI in real production terms?
 
-An SLI is a quantifiable metric that reflects user experience, such as request latency, error rate, or availability.
+- An SLI is a quantifiable metric that reflects user experience, such as request latency, error rate, or availability.
 
-4. How do you choose the right SLI?
+## 4. How do you choose the right SLI?
 
-Choose metrics that users actually feel, not internal metrics. For example, HTTP success rate is better than CPU usage.
+- Choose metrics that users actually feel, not internal metrics. For example, HTTP success rate is better than CPU usage.
 
-5. What is an SLO and why is it critical?
+## 5. What is an SLO and why is it critical?
 
-An SLO defines the acceptable reliability target (e.g., 99.9% availability). It sets a clear expectation between engineering and business.
+- An SLO defines the acceptable reliability target (e.g., 99.9% availability). It sets a clear expectation between engineering and business.
 
-6. What happens if an SLO is consistently violated?
+## 6. What happens if an SLO is consistently violated?
 
-Feature releases should slow down or stop, and focus should shift to reliability improvements. This prevents burnout and outages.
+- Feature releases should slow down or stop, and focus should shift to reliability improvements. This prevents burnout and outages.
 
 ## 7. What is an error budget in simple terms?
 
@@ -39,162 +39,162 @@ Feature releases should slow down or stop, and focus should shift to reliability
 
 - A good alert is actionable, urgent, and user-impacting. Alerts on symptoms, not causes.
 
-11. Why is alert fatigue dangerous?
+## 11. Why is alert fatigue dangerous?
 
-Too many alerts cause engineers to ignore real incidents, increasing MTTR and outage impact.
+- Too many alerts cause engineers to ignore real incidents, increasing MTTR and outage impact.
 
 ## 12. How do you reduce alert noise in real systems?
 
 - Use SLO-based alerts, remove low-value alerts, and rely on aggregation and deduplication.
 
-13. What is MTTR and why do leaders care about it?
+## 13. What is MTTR and why do leaders care about it?
 
-MTTR (Mean Time To Recover) measures how fast systems recover, not just how often they fail.
+- MTTR (Mean Time To Recover) measures how fast systems recover, not just how often they fail.
 
-14. How do you practically reduce MTTR?
+## 14. How do you practically reduce MTTR?
 
-Improve observability, create runbooks, automate remediation, and ensure clear ownership during incidents.
+- Improve observability, create runbooks, automate remediation, and ensure clear ownership during incidents.
 
-15. What is a production incident from an SRE view?
+## 15. What is a production incident from an SRE view?
 
-Any event that impacts users or violates SLOs, not just system crashes.
+- Any event that impacts users or violates SLOs, not just system crashes.
 
-16. How do you run an effective incident response?
+## 16. How do you run an effective incident response?
 
-Use a clear incident commander, reduce communication chaos, focus on mitigation first, root cause later.
+- Use a clear incident commander, reduce communication chaos, focus on mitigation first, root cause later.
 
-17. What is a blameless postmortem and why does it matter?
+## 17. What is a blameless postmortem and why does it matter?
 
-It focuses on system failures, not people, enabling learning and preventing repeat incidents.
+- It focuses on system failures, not people, enabling learning and preventing repeat incidents.
 
-18. What should a good postmortem always include?
+## 18. What should a good postmortem always include?
 
-Timeline, impact, root cause, contributing factors, and clear action items with owners.
+- Timeline, impact, root cause, contributing factors, and clear action items with owners.
 
-19. How do you prevent the same incident from happening again?
+## 19. How do you prevent the same incident from happening again?
 
-Fix systemic issues, add safeguards, improve alerts, and automate where possible.
+- Fix systemic issues, add safeguards, improve alerts, and automate where possible.
 
-20. Why is automation a core SRE principle?
+## 20. Why is automation a core SRE principle?
 
-Manual work does not scale. Automation reduces human error and improves consistency.
+- Manual work does not scale. Automation reduces human error and improves consistency.
 
-21. What kind of tasks should never be manual in SRE?
+## 21. What kind of tasks should never be manual in SRE?
 
-Deployments, rollbacks, scaling, certificate renewals, and routine recovery actions.
+- Deployments, rollbacks, scaling, certificate renewals, and routine recovery actions.
 
-22. How do you decide what to automate first?
+## 22. How do you decide what to automate first?
 
-Automate frequent, error-prone, and high-impact tasks first.
+- Automate frequent, error-prone, and high-impact tasks first.
 
-23. What is toil in SRE language?
+## 23. What is toil in SRE language?
 
-Toil is manual, repetitive work that produces no long-term value.
+- Toil is manual, repetitive work that produces no long-term value.
 
-24. How much toil is acceptable in an SRE team?
+## 24. How much toil is acceptable in an SRE team?
 
-Google recommends less than 50% toil. More than that blocks innovation and reliability improvements.
+- Google recommends less than 50% toil. More than that blocks innovation and reliability improvements.
 
-25. How do you measure toil practically?
+## 25. How do you measure toil practically?
 
-Track time spent on manual ops, tickets, and repetitive tasks during sprints.
+- Track time spent on manual ops, tickets, and repetitive tasks during sprints.
 
-26. Why is capacity planning important for SRE?
+## 26. Why is capacity planning important for SRE?
 
-It prevents outages caused by resource exhaustion and avoids over-spending.
+- It prevents outages caused by resource exhaustion and avoids over-spending.
 
-27. How do you plan capacity in cloud environments?
+## 27. How do you plan capacity in cloud environments?
 
-Use historical trends, growth projections, and load testing—not guesswork.
+- Use historical trends, growth projections, and load testing—not guesswork.
 
-28. What role does chaos engineering play in SRE?
+# 28. What role does chaos engineering play in SRE?
 
-It validates system resilience by intentionally injecting failures in a controlled way.
+- It validates system resilience by intentionally injecting failures in a controlled way.
 
-29. When should chaos testing be avoided?
+## 29. When should chaos testing be avoided?
 
-During incidents, peak business hours, or when systems lack proper monitoring.
+- During incidents, peak business hours, or when systems lack proper monitoring.
 
-30. What is the difference between availability and reliability?
+## 30. What is the difference between availability and reliability?
 
-Availability is uptime. Reliability includes correctness, latency, and consistency.
+- Availability is uptime. Reliability includes correctness, latency, and consistency.
 
-31. Why is 100% availability a bad goal?
+## 31. Why is 100% availability a bad goal?
 
-It is unrealistic and expensive. It prevents innovation and leads to burnout.
+- It is unrealistic and expensive. It prevents innovation and leads to burnout.
 
-32. How do you balance reliability vs feature velocity?
+## 32. How do you balance reliability vs feature velocity?
 
-Use error budgets to make data-driven decisions, not emotional ones.
+- Use error budgets to make data-driven decisions, not emotional ones.
 
-33. What metrics matter most to SRE leadership?
+## 33. What metrics matter most to SRE leadership?
 
-SLO compliance, MTTR, incident frequency, and customer impact.
+- SLO compliance, MTTR, incident frequency, and customer impact.
 
-34. Why is logging critical during incidents?
+## 34. Why is logging critical during incidents?
 
-Logs provide context and root cause clues that metrics alone cannot.
+- Logs provide context and root cause clues that metrics alone cannot.
 
-35. How do you design logs for production systems?
+## 35. How do you design logs for production systems?
 
-Use structured logs, include request IDs, and log meaningful events—not noise.
+- Use structured logs, include request IDs, and log meaningful events—not noise.
 
-36. What is observability beyond monitoring?
+## 36. What is observability beyond monitoring?
 
-Observability explains why something happened, not just that it happened.
+- Observability explains why something happened, not just that it happened.
 
-37. How do metrics, logs, and traces work together?
+## 37. How do metrics, logs, and traces work together?
 
-Metrics show trends, logs show details, traces show request flow.
+- Metrics show trends, logs show details, traces show request flow.
 
-38. Why do SREs prefer pull-based monitoring like Prometheus?
+## 38. Why do SREs prefer pull-based monitoring like Prometheus?
 
-It is more reliable, easier to scale, and safer than push models.
+- It is more reliable, easier to scale, and safer than push models.
 
-39. How do you handle deployments safely in SRE?
+## 39. How do you handle deployments safely in SRE?
 
-Use canary releases, blue-green deployments, and automated rollbacks.
+- Use canary releases, blue-green deployments, and automated rollbacks.
 
-40. Why are runbooks important during incidents?
+## 40. Why are runbooks important during incidents?
 
-They reduce decision-making time and help any engineer act quickly.
+- They reduce decision-making time and help any engineer act quickly.
 
-41. What makes a runbook effective?
+## 41. What makes a runbook effective?
 
-Clear steps, validation commands, rollback actions, and ownership details.
+- Clear steps, validation commands, rollback actions, and ownership details.
 
-42. How do you prevent configuration drift?
+## 42. How do you prevent configuration drift?
 
-Use Infrastructure as Code and enforce version control.
+- Use Infrastructure as Code and enforce version control.
 
-43. Why do SREs care about immutability?
+## 43. Why do SREs care about immutability?
 
-Immutable systems reduce drift, simplify debugging, and improve reliability.
+- Immutable systems reduce drift, simplify debugging, and improve reliability.
 
-44. How do you handle third-party dependency failures?
+## 44. How do you handle third-party dependency failures?
 
 Use timeouts, retries with backoff, circuit breakers, and fallbacks.
 
-45. What is graceful degradation?
+## 45. What is graceful degradation?
 
-The system continues to work with reduced functionality instead of failing completely.
+- The system continues to work with reduced functionality instead of failing completely.
 
-46. Why are load tests important before production?
+## 46. Why are load tests important before production?
 
-They expose bottlenecks early and prevent surprise outages.
+- They expose bottlenecks early and prevent surprise outages.
 
-47. What is a single point of failure (SPOF)?
+## 47. What is a single point of failure (SPOF)?
 
-Any component whose failure brings down the entire system.
+- Any component whose failure brings down the entire system.
 
-48. How do you eliminate SPOFs?
+## 48. How do you eliminate SPOFs?
 
-Add redundancy, health checks, and automated failover.
+- Add redundancy, health checks, and automated failover.
 
-49. What mindset separates strong SREs from average ones?
+## 49. What mindset separates strong SREs from average ones?
 
-Strong SREs think in systems and failure modes, not tools.
+- Strong SREs think in systems and failure modes, not tools.
 
-50. What is the ultimate goal of an SRE team?
+## 50. What is the ultimate goal of an SRE team?
 
-Keep users happy by delivering reliable systems at sustainable speed.
+- Keep users happy by delivering reliable systems at sustainable speed.
