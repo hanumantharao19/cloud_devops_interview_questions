@@ -840,4 +840,12 @@ For example, if you need to deploy resources in multiple AWS regions, you can cr
 provider blocks with aliases for each region. Use aliases to specify which provider
 instance a resource should use.
 
+## If a Terraform project has 100 resources, how do you create only one?
+- The recommended way is to remove the specific resource block from the Terraform configuration and run terraform apply. Terraform will detect it as drift and destroy only that resource.
+- Alternatively, we can use below command for deleting resource but not recommended
+```
+terraform destroy -target=resource_type.resource_name
+```
+for targeted deletion, but it should be used cautiously to avoid dependency issues.
+
 

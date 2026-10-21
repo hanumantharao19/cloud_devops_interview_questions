@@ -130,3 +130,53 @@
 - Check Grafana server resources
 
   - Ensure Grafana has enough CPU and memory
+
+  ## what are the dashboards and panels in grafana
+  - dashboard -> collection of panels
+  - panel -> single visualization
+
+## what type of visualizations does grafan support?
+- time series graphs
+- heatmaps
+- gauges
+- tables
+- bar charts
+
+
+## grafana dashboard is slow how do you optimize it ?
+- reduce query complexity
+- increase time range step
+- limit panels per dashboard
+- use recording rules
+
+
+## how do you create alerts in grafana?
+- define alert conditions on panels
+- configure thrsholds
+- set notification channels
+
+
+## multiple teams use the same grafan instance  how do you manage access?
+- use organisations
+- use folders
+- apply RBAC
+- intergrate with LDAP/Oauth
+
+## how do you correlate metrics with logs and traces?
+- use consistent labels(traceid,service)
+- integrate with loki
+- integrate with tempo(traces)
+
+## how do you visualize error rates in grafana
+- use promQl to calculate error percentage
+- plot time-series graph
+- add threshold based alerts
+
+
+## production latency increased suddenly how do you troubleshoot using prometheus and grafana
+-> check latency dashboards
+- identify affected service
+- dril down by pod/instance
+- correlate with CPU/memory
+- check error rates
+- validate recent deployments

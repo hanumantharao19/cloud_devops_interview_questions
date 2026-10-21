@@ -99,7 +99,7 @@ Purpose: Verifies which pod IPs are backing the service.
 kubectl port-forward pod <pod-name> 8080:80
 ```
 
-Purpose: Access a pod locally without exposing it via a service.
+## Purpose: Access a pod locally without exposing it via a service.
 
 5. Apply, Create & Delete Resources
 ```

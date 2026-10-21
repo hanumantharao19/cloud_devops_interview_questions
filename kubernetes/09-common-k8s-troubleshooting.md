@@ -85,6 +85,11 @@ kubectl debug -it <pod-name> --image=busybox --target=<container-name>
 
 You can inspect volumes, paths, env variables while the pod crashes repeatedly.
 
+
+- app errors
+- worng config
+- missing dependencies
+- liveness probe failure
 ---
 
 ## Question

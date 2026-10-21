@@ -256,3 +256,6 @@ Executed for interactive shell sessions.
 100. What is .bash_profile?
 
 Executed during login shells.
+
+## If server is not working and you cannot login, how will you troubleshoot?
+- First, I verify whether the issue is network-level or OS-level. I check security groups, firewall rules, and instance state from the cloud console. Then I review monitoring metrics like CPU, memory, and disk from CloudWatch or Dynatrace. If required, I use serial console access or detach the root volume to inspect logs. This helps identify whether the issue is resource exhaustion, OS crash, or configuration problem.

@@ -223,3 +223,4 @@ Note: AWS allows online resizing without stopping the instance.
 - RDS is ideal for structured data and complex queries, while DynamoDB is best for high-performance, scalable applications with flexible data models.
 
 ## 
+

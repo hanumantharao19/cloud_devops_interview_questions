@@ -1,0 +1,6 @@
+## What are reasons for SonarQube Quality Gate failure?
+- Quality Gate failures typically occur due to low code coverage, new bugs or vulnerabilities, high code duplication, or maintainability issues. Misconfiguration of rules or incorrect threshold settings can also cause failures.
+
+## How do you create Quality Profiles and Quality Gates?
+- Quality Profiles are created to define rule sets for specific languages, and Quality Gates define pass/fail conditions based on metrics like coverage, bugs, and vulnerabilities. We create them in the SonarQube UI under Quality Profiles and Quality Gates sections and assign them to projects as per organizational standards.
+

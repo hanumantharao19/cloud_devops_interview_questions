@@ -458,3 +458,152 @@ or
 - Access the database using its private IP address.
 ---
 
+## how cloud run is connect to the coud Sql database
+Cloud Run connects to Cloud SQL either using the built-in Cloud SQL Connector, which securely connects through a Unix socket using IAM permissions, or via a Serverless VPC Connector when Cloud SQL is configured with a private IP. The recommended method is using the Cloud SQL Connector for secure and simplified connectivity.
+
+
+
+## what is difference google privatge access and google private connect
+
+- Private Service Access is used to access Google managed services 
+  (like Cloud SQL) privately from your VPC.
+
+- Private Service Connect is used to access services across VPCs, 
+  projects, or organizations using private endpoints.
+
+
+  ### Prodcution grade cloud run application access ###
+  Ans:
+  - step 1:  create cloud run service through terraform 
+  - Step 2: create server less network endpoint groups through terraform . that will connect to cloud run serves which we have create in step 1
+  - step 3: create backend services . these backend service map to network endpoint groups
+ - step 4: For url maps created host based routing through terraform . where domains are maps to backend services
+ - step 5: create ssl certificates
+ - step 6: create https proxy
+ - steps 7 :  create public ip and forward rules where forwarding rules map to public ip
+ - steps 8 : create cloud armor and those polacies attached to the backed services
+
+ ## cloud armor will attach to the internal load balancer or external loadbalancer
+ Ans:
+ Cloud Armor policies are applied at the backend service level of an external HTTP(S)
+ - cloud armor is used to block the ip address
+ - cloud armor have option only allow india traffic or deny usa traafic
+ - cloud armor user api rate limit per minute
+
+
+ ## what are the authrised views in bigquery
+ Ans: 
+ “Authorized Views in BigQuery provide controlled access to underlying datasets by exposing only filtered or selected data through views without granting direct table access.”
+
+ ## Purpose of Dataflow (Points)
+
+1️⃣ Real-time (streaming) data processing
+
+Processes live data from sources like Cloud Pub/Sub
+
+2️⃣ Data transformation
+
+Converts raw data into structured, usable format
+
+3️⃣ Batch data processing
+
+Handles large datasets from storage (like files or tables)
+
+4️⃣ Data enrichment
+
+Adds additional information (timestamps, user info, etc.)
+
+5️⃣ Filtering and validation
+
+Removes unwanted or invalid data
+
+6️⃣ Aggregation and analytics
+
+Performs calculations (count, sum, average, windowing)
+
+7️⃣ ETL / ELT pipeline processing
+
+Moves and transforms data between systems (e.g., Pub/Sub → BigQuery)
+
+
+## vpc service controllers purpose in google cloud
+Ans: 
+“VPC Service Controls provide a security perimeter around Google Cloud services to protect sensitive data from unauthorized access and data leakage.”
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## What KPIs would you include in a Grafana dashboard?
+
+I would include Golden Signals such as latency, traffic, errors, and saturation. Additionally, I would monitor infrastructure metrics like CPU and memory usage, Kubernetes metrics like pod health and restarts, and database metrics like active connections and query latency. The goal is to detect performance degradation before it impacts users.
+
+## what are gateway we are using in kubernetes to access the application through internet
+
+
+
+## How are your GKE pod logs visible in Cloud Logging?
+
+In GKE, a logging agent like Fluent Bit runs on each node and collects container logs from stdout and stderr. These logs are automatically forwarded to Cloud Logging, where they can be viewed in Logs Explorer with Kubernetes metadata attached.
+
+
+
+## How do logs from multiple applications on different nodes reach Google Logs Explorer?
+
+In GKE, a logging agent like Fluent Bit runs as a DaemonSet on each node. It collects container logs from stdout and stderr and forwards them to Cloud Logging automatically. No special annotation is required unless custom log routing is needed.
+
+
+
+## If your app scales to 15 pods, how are logs and metrics handled?
+
+In GKE, container logs are stored on the node filesystem and collected by Dynatrace OneAgent running as a DaemonSet. The agent automatically discovers new pods and collects logs, metrics, and traces. Data is sent to the Dynatrace server where AI-based monitoring detects anomalies such as memory leaks or excessive garbage collection and raises incidents.
+
+In GKE, a logging agent like Fluent Bit runs as a DaemonSet on each node. It collects container logs from stdout and stderr and forwards them to Cloud Logging automatically. No special annotation is required unless custom log routing is needed.
+
+## How do you reduce Cloud Logging cost?
+
+I would reduce ingestion by lowering log verbosity, creating exclusion filters for non-critical logs, reducing retention for non-production environments, and exporting logs to cheaper storage like Cloud Storage. Controlling log volume at the application level is the most effective strategy
+
+## Why use OpenTelemetry if Prometheus is already there?
+
+Prometheus focuses on metrics collection, whereas OpenTelemetry provides standardized instrumentation for metrics, traces, and logs. In microservices environments, OpenTelemetry helps generate distributed tracing and vendor-neutral telemetry that can be exported to multiple backends, including Prometheus.
+
+## Have you worked on OpenTelemetry?
+I have not implemented OpenTelemetry directly, but I understand that it is used for standardized instrumentation of metrics, logs, and traces in distributed systems. In my projects, we used Prometheus and Dynatrace for observability, but I am familiar with how OpenTelemetry integrates with such tools.
+
+##  If They Ask: “How Does It Work?”
+OpenTelemetry SDK is added to the application to generate telemetry data such as metrics and traces. This data is collected by an OpenTelemetry Collector, which then exports it to monitoring systems like Prometheus or tracing tools like Jaeger.
+
+## what openTelemetry
+OpenTelemetry is an open-source observability framework that standardizes the generation and export of metrics, logs, and distributed traces in cloud-native applications.
+
+## What are the three pillars of SRE?
+The three pillars of SRE observability are metrics, logs, and traces. Metrics provide numerical performance data, logs provide detailed event information, and traces provide end-to-end request visibility across distributed systems.
+
+## Which API Gateway does Google Cloud use?
+Google Cloud provides a managed API Gateway service for exposing APIs using OpenAPI specifications. For enterprise-level API management, Google also offers Apigee, which provides advanced API lifecycle management and policy control.
+
+## How would you use Apigee with 10 GKE applications?
+I would expose each GKE service through an ingress or load balancer, then create API proxies in Apigee that forward requests to the appropriate backend services. Apigee would handle authentication, rate limiting, and security policies, while GKE handles the application logic. Traffic flows from client to Apigee, then to the GKE ingress, and finally to the target service.
+
+
+## In a cluster with 30 namespaces and many apps, do you deploy multiple ingress controllers?
+
+Typically, a single ingress controller can manage multiple ingress resources across namespaces in a cluster. Multiple ingress controllers are used only when traffic segregation, security isolation, or different ingress technologies are required.
+

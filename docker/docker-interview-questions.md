@@ -96,6 +96,7 @@ docker tag  <imagename>  <registryname>/<imagename>:tagname
 - ENTRYPOINT defines the main command of the container.
 - Only one ENTRYPOINT is allowed in a Dockerfile.
 - ENTRYPOINT cannot be overridden; runtime arguments are appended to it.
+- we can able to override using --entrypoint
 
 ## 22) can please write one sample docker file?
 ```
@@ -128,6 +129,8 @@ docker run -d  -p <host_port>:<container_port> --name <container_Name> <image_na
 ## example
 docker run -d - -p 8080:80 -name httpd_server httpd:2.2
 ```
+## how to delete unused docker containers and images?
+- docker system prune -a
 
 
 

@@ -201,3 +201,37 @@ Example: http_requests_total
 - Similar to histogram but calculates quantiles like 50th, 95th percentile
 - Used for tracking request durations or latency percentiles
 - Example: http_request_duration_seconds
+
+## what are the labels in prometheus
+
+
+## prometheus server is running out of disk space what would you do ?
+- Reduce the retention period
+- enable the remote storage (thanos/cortex)
+- clean unused metrics
+- increase disk size
+
+## metrics are missing from a kubernetes pod how do we debug?
+- check target status in prometheus UI
+- validate exporter endpoint
+- check network policies
+- check the podmonitor or service monitor
+- check pod annotations
+
+## prometheus peformance is degrading  what cloud be the reasons?
+- high cardinality labels
+- two many scrape tragets
+- long retention
+- Expensive promQL queries
+
+
+## how do you monitor application latency using promethus?
+- use histogram or summary
+- track request duration
+- use histogram_quantile() for percentiles
+
+
+## how do you hadle multi-cluster monitoring?
+- deploy prometheus per cluster
+- use Thanos/cortex for aggregation
+- centralized Grafana dashboards

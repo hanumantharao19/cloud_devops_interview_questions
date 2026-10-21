@@ -346,6 +346,10 @@ Using FastAPI or Flask
 Isolated environment for dependencies.
 
 
+## python program to read the log file and print error count
+
+
+
 
 
 
